@@ -1,0 +1,33 @@
+# Render blueprint for Orbit Earn Bot (free tier).
+# Deploy via: Render dashboard → New → Blueprint → connect the repo containing this file.
+# Secrets (sync: false) are filled in the Render dashboard, never in git.
+services:
+  - type: web
+    name: orbit-earn
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: BOT_TOKEN
+        sync: false # from @BotFather → /mybots → @orbit_earn_bot → API Token
+      - key: BOT_USERNAME
+        value: orbit_earn_bot
+      - key: WEBAPP_URL
+        sync: false # e.g. https://orbit-earn.onrender.com (set after first deploy)
+      - key: DB_HOST
+        sync: false # TiDB Cloud host, e.g. gateway01.us-west-2.prod.aws.tidbcloud.com
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_NAME
+        value: orbit_earn
+      - key: DB_USER
+        sync: false # TiDB Cloud user, e.g. xxxxxxxx.root
+      - key: DB_PASS
+        sync: false
+      - key: DB_SSL
+        value: "1" # TiDB Cloud requires TLS
+      - key: ADMIN_TELEGRAM_ID
+        value: "6826458047" # owner gets new-withdrawal alerts
+      - key: SETUP_KEY
+        sync: false # one-time admin-setup key (any random string); remove after use

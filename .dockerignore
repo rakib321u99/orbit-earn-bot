@@ -1,0 +1,6 @@
+design/
+test_logic.py
+.git/
+.github/
+*.md
+!README.md

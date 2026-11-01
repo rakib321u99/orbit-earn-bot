@@ -1,0 +1,103 @@
+/* Orbit Earn Bot v1 — Mini App styles. Space theme: deep navy, purple-cyan glows. Original design. */
+:root {
+  --bg: #0b1026;
+  --bg2: #111736;
+  --card: #141b3d;
+  --line: #2a3568;
+  --txt: #e8ecff;
+  --mut: #9aa6dd;
+  --acc1: #7c3aed;
+  --acc2: #06b6d4;
+  --gold: #fbbf24;
+  --green: #10b981;
+  --red: #ef4444;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: system-ui, -apple-system, sans-serif;
+  background: radial-gradient(1200px 600px at 50% -10%, #1b2358 0%, var(--bg) 60%);
+  color: var(--txt); min-height: 100vh;
+}
+#app { max-width: 480px; margin: 0 auto; padding: 14px 14px 86px; }
+h2 { font-size: 20px; margin: 6px 0 12px; }
+h3 { font-size: 16px; margin: 14px 0 8px; color: var(--mut); }
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 16px; margin: 12px 0;
+  box-shadow: 0 0 24px #7c3aed22;
+}
+.bal-card {
+  text-align: center; padding: 26px 16px;
+  background: linear-gradient(135deg, #1c2450, #141b3d);
+  border: 1px solid #7c3aed66;
+}
+.bal-num { font-size: 38px; font-weight: 800; color: #fff; text-shadow: 0 0 18px #7c3aed; }
+.bal-usd { color: var(--mut); margin-top: 4px; }
+.planet { font-size: 44px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.stat { flex: 1 1 0; background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 10px; text-align: center; min-width: 90px; }
+.stat b { display: block; font-size: 18px; color: #fff; }
+.stat span { font-size: 11px; color: var(--mut); }
+.btn {
+  display: inline-block; border: 0; cursor: pointer; text-decoration: none;
+  background: linear-gradient(135deg, var(--acc1), var(--acc2));
+  color: #fff; border-radius: 10px; padding: 11px 18px; font-size: 15px; font-weight: 600;
+}
+.btn:disabled { opacity: .45; cursor: default; }
+.btn.ghost { background: #232c5e; }
+.btn.big { width: 100%; padding: 14px; font-size: 16px; }
+.task, .adunit, .wrow {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg2); border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px; margin: 8px 0;
+}
+.task .t, .adunit .t { font-size: 14px; }
+.task .r, .adunit .r { color: var(--gold); font-weight: 700; font-size: 13px; }
+.small { font-size: 12px; color: var(--mut); }
+.done { color: var(--green); font-weight: 700; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.game-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 16px 10px; text-align: center; cursor: pointer; }
+.game-card:hover { border-color: var(--acc1); }
+.game-card .gi { font-size: 38px; }
+.game-card .gn { font-weight: 700; margin: 8px 0 4px; }
+#tabs {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: #0d1330ee; border-top: 1px solid var(--line);
+  display: flex; backdrop-filter: blur(8px); z-index: 10;
+}
+#tabs button {
+  flex: 1; background: none; border: 0; color: var(--mut);
+  padding: 10px 4px 14px; font-size: 11px; cursor: pointer;
+}
+#tabs button .ti { font-size: 20px; display: block; }
+#tabs button.on { color: #fff; }
+#tabs button.on .ti { filter: drop-shadow(0 0 6px var(--acc2)); }
+#game-area { margin-top: 10px; }
+canvas { width: 100%; border-radius: 12px; background: #070b1d; border: 1px solid var(--line); touch-action: none; }
+input[type=text], input[type=number], select, textarea {
+  width: 100%; background: #0e1440; border: 1px solid var(--line);
+  color: var(--txt); border-radius: 8px; padding: 10px; font-size: 14px; margin: 6px 0;
+}
+.notice { background: #052e22; border: 1px solid var(--green); color: #a7f3d0; padding: 10px; border-radius: 8px; margin: 10px 0; font-size: 13px; }
+.warn { background: #3b0a0a; border: 1px solid var(--red); color: #fecaca; padding: 10px; border-radius: 8px; margin: 10px 0; font-size: 13px; }
+.linkbox { font-family: monospace; font-size: 12px; word-break: break-all; background: #0e1440; padding: 10px; border-radius: 8px; border: 1px solid var(--line); }
+.hidden { display: none !important; }
+#toast {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+  background: #1c2450; border: 1px solid var(--acc1); color: #fff;
+  padding: 10px 18px; border-radius: 10px; z-index: 50; display: none;
+}
+.ttt { display: grid; grid-template-columns: repeat(3, 84px); gap: 8px; justify-content: center; margin: 12px 0; }
+.ttt button { height: 84px; font-size: 34px; background: #0e1440; border: 1px solid var(--line); border-radius: 10px; color: #fff; cursor: pointer; }
+.wgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 12px 0; }
+.wgrid button { aspect-ratio: 1; font-size: 18px; background: #0e1440; border: 1px solid var(--line); border-radius: 8px; color: #fff; cursor: pointer; }
+.wgrid button.hit { background: #134e2a; border-color: var(--green); }
+.wbank { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+.wbank button { background: #232c5e; border: 1px solid var(--line); color: #fff; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.wbank button.used { opacity: .35; text-decoration: line-through; }
+
+/* Quick Safety Check modal */
+.modal { position: fixed; inset: 0; background: rgba(4, 8, 24, .72); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 18px; }
+.modal-card { background: #141b3d; border: 1px solid #3b2d7a; border-radius: 16px; padding: 20px; max-width: 380px; width: 100%; box-shadow: 0 0 40px rgba(124, 92, 255, .35); }
+.modal-card h3 { margin: 0 0 8px; }
+.modal-card input { flex: 1; background: #0b1030; border: 1px solid #3b2d7a; color: #fff; border-radius: 10px; padding: 10px; font-size: 16px; }
